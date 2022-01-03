@@ -2,7 +2,8 @@ import s from './github.module.css';
 import { useState, useCallback } from 'react';
 import { Header } from './Header.js';
 import { List } from './List.js';
-import { Page } from './Page.js'
+import { Page } from './Page.js';
+
 
 export const Github = () => {
   const [searchTerm, setSearchTerm] = useState('Diana');
@@ -19,7 +20,8 @@ export const Github = () => {
   return (
     <div className={s.container}>
       <div>
-        <Header searchTerm={searchTerm} setSearchTerm={setSearchTermForHeader} />
+        <Header value={searchTerm} setSearchTerm={setSearchTermForHeader} />
+        <button onClick={() => {setSearchTerm('Diana')}}>Reset</button>
         <List searchTerm={searchTerm} setUserDetails={setUserDetailsForList} />
       </div>
       <div>

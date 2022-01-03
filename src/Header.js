@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const Header = ({ searchTerm, setSearchTerm }) => {
+export const Header = ({ value, setSearchTerm }) => {
 
     const [tempSearch, setTempSearch] = useState('Diana');
 
     useEffect(() => {
         axios
-            .get(`https://api.github.com/search/users?q=${searchTerm}`)
+            .get(`https://api.github.com/search/users?q=${value}`)
             .then(res => {
                 setSearchTerm(res.data.items)
             })
-    }, [searchTerm, setSearchTerm])
+    }, [value, setSearchTerm])
 
     return (
         <div>
